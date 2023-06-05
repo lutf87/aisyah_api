@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class guruseeder extends Seeder
+class GuruSeeder extends Seeder
 {
     /**
      * Run the database seeds.
