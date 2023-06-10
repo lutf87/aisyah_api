@@ -15,6 +15,7 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+            $table->string('fcm_token')->nullable();
             $table->string('nama_siswa', 100);
             $table->integer('nisn');
             $table->enum('jkel', ['L', 'P']);

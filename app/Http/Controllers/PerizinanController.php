@@ -43,18 +43,18 @@ class PerizinanController extends Controller
             'selesai' => 'required',
             'judul_izin' => 'required',
             'pesan_izin' => 'required',
-            'bukti' => 'required|image|max:2048',
+            'bukti' => 'required',
         ]);
 
-        $nisn = Auth::user()->nisn;
-        $imgName = $nisn . '_izin_' . time() . '_' . $request->file('bukti')->getClientOriginalName();
-        $request->bukti->storeAs('public/izin/images', $imgName);
+        // $nisn = Auth::user()->nisn;
+        // $imgName = $nisn . '_izin_' . time() . '_' . $request->file('bukti')->getClientOriginalName();
+        // $request->bukti->storeAs('public/izin/images', $imgName);
 
         $user = Auth::user()->id;
 
         Perizinan::create([
             'user_id' => $user,
-            'bukti' => $imgName,
+            'bukti' => $request->bukti,
             'mulai' => $request->mulai,
             'selesai' => $request->selesai,
             'judul_izin' => $request->judul_izin,
